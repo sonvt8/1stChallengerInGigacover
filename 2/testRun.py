@@ -38,7 +38,9 @@ def writeFile(output, lst):
         doB.insert(i, arr[-3].split('-')[0])
 
     i = 3
+    # Get the first letter of word
     letters = [word[0] for word in middleName]
+
     # Starting write file
     f.write(lst[0] + '\n')
     while i >= 0:
@@ -46,8 +48,6 @@ def writeFile(output, lst):
             amt = amt * 3
         elif (now.year-int(doB[i])) < 26:
             amt = amt * 2
-        else:
-            amt = 500
         f.write(code[i] + ', ' + firstName[i].capitalize() + ' ' + letters[i].upper() + '. ' + lastName[i].upper()
                 + ', ' + str(now.year-int(doB[i])) + ', ' + str(amt) + '\n')
         i -= 1
