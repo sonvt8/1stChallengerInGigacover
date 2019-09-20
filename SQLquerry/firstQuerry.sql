@@ -4,8 +4,9 @@ CREATE DATABASE PSQL_INTERN;
 
 --TODO Son what database the below script will run on
 -- 01.CREATE TABLE CUSTOMERS
+--TODO Son column name in lowercase please
 CREATE TABLE CUSTOMERS(
-	ID TEXT PRIMARY KEY,
+	ID TEXT PRIMARY KEY, --TODO Son id as autoincrease please
 	NAME TEXT NOT NULL,
 	BIRTH DATE,
 	ADDRESS VARCHAR(50),
@@ -23,9 +24,8 @@ INSERT INTO customers VALUES ('A02','Nguyen Van Be','19820123','Sai Gon'
 							 ,'0932122333');
 							 
 -- 03.QUERRY DATA FROM CUSTOMERS TABLE
-SELECT * FROM CUSTOMERS
+SELECT * FROM CUSTOMERS;
 
 -- 04.QUERRY THE YOUNGEST CUSTOMER IN THE LIST
-
 SELECT * FROM CUSTOMERS
-WHERE birth = (SELECT max(birth) as EarliestDate FROM customers)
+WHERE birth = (SELECT max(birth) as EarliestDate FROM customers);
