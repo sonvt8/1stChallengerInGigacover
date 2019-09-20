@@ -1,6 +1,8 @@
+--TODO Son put this into another file
 -- 00.CREATE DATABASE PSQL_INTERN
 CREATE DATABASE PSQL_INTERN;
 
+--TODO Son what database the below script will run on
 -- 01.CREATE TABLE CUSTOMERS
 CREATE TABLE CUSTOMERS(
 	ID TEXT PRIMARY KEY,
