@@ -1,0 +1,3 @@
+--TODO Son put this into another file
+-- 00.CREATE DATABASE PSQL_INTERN
+CREATE DATABASE PSQL_INTERN;
