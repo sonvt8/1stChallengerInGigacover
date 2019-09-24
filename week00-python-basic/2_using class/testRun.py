@@ -47,19 +47,21 @@ def writeFile(output, lst):
     f = open(output, mode="w")
 
     # extract information of Driver and insert each Driver into the list "lstDriver"
-    for line in lst[2:]:
+    for index,line in enumerate(lst[2:],start=1):
         info = line.split()
-        driver_all = Driver(*info)  #TODO Son should name this driver instead of driver_all
-        lstDriver.append(driver_all)  #TODO Son driver_all should be lstDriver
+        name = "Driver{0}".format(index)
+        name = Driver(*info)
+        lstDriver.append(name)
 
     # insert claim of each person into the list
     claimCount = [person.claims for person in lstDriver]
+    maxClaim = max(claimCount)
 
     # Starting write file
     f.write(lst[0] + '\n')
     for person in lstDriver:
         f.write(person.code + ', ' + person.getFistName() + ' ' + person.getMiddleName() + '. ' + person.getLastName()
-                + ', ' + str(person.getyear()) + ', ' + str(person.getPay(max(claimCount))) + '\n')  #TODO Son use f-string please  #TODO Son max(claimCount) can compute once only outside of the loop
+                + ', ' + str(person.getyear()) + ', ' + str(person.getPay(maxClaim)) + '\n')
     f.close()
 
 
