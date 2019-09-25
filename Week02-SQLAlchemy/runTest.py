@@ -3,17 +3,15 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column
 from sqlalchemy import String, Integer, Date, PrimaryKeyConstraint, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 
+# Make a connection to database
 db = Database()
+Base = declarative_base()
 
 # The Python Debugger
 # from pdb import  set_trace; set_trace()
 
-session = sessionmaker(bind = Database.engine)()
-
-Base = declarative_base()
-
+# Creat a class Customer
 class Customer(Base):
 
     __tablename__ = 'customers'
@@ -32,7 +30,8 @@ class Customer(Base):
         self.phone = phone
 
 # Read
-customers = session.query(Customer)
+customers = db.session.query(Customer)
 for customer in customers:
-    print(str(customer.id) + ' | ' + customer.name +  ' |  ' + str(customer.birth) +  ' |  ' + customer.address
-          + ' |  ' + customer.phone)
+    sentence = f'{customer.id} | {customer.name} | {customer.birth} | {customer.address} | {customer.phone}'
+    print(sentence)
+
