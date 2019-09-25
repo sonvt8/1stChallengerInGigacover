@@ -48,8 +48,9 @@ def writeFile(output, lst):
             amt = amt * 3
         elif (now.year-int(doB[i])) < 26:
             amt = amt * 2
-        f.write(code[i] + ', ' + firstName[i].capitalize() + ' ' + letters[i].upper() + '. ' + lastName[i].upper()
-                + ', ' + str(now.year-int(doB[i])) + ', ' + str(amt) + '\n')
+        sentence = f'{code[i]}, {firstName[i].capitalize()}, {letters[i].upper()}, {lastName[i].upper()}, ' \
+                   f'{now.year-int(doB[i])}, {amt}\n'
+        f.write(sentence)
         i -= 1
         amt = 500
     f.close()
