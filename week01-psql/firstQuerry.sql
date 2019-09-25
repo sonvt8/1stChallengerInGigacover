@@ -1,3 +1,4 @@
+--TODO Son khi nao viet hoa, khi nao viet thuong ten bang - dang khong nhat' quan'
 
 -- 01.CREATE TABLE CUSTOMERS IN DATABASE PSQL_INTERN
 DROP TABLE if exists customers;
