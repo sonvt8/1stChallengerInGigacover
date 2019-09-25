@@ -14,12 +14,11 @@ class Customer(Base):
 
     __tablename__ = 'customers'
 
-    #TODO Son do'ng thang hang` dau' =
-    id = Column(Integer, primary_key=True) # Auto-increment should be default autoincrement=True
-    name = Column(String)
-    birth = Column(Date)
+    id      = Column(Integer, primary_key=True) # Auto-increment should be default autoincrement=True
+    name    = Column(String)
+    birth   = Column(Date)
     address = Column(String(50))
-    phone = Column(String(20))
+    phone   = Column(String(20))
 
     def __init__(self, name, birth, address, phone):
         self.name = name
@@ -30,8 +29,8 @@ class Customer(Base):
 #CRUD WITH SQLAlchemy
 
 # CREATE
-newCustomer = Customer ('Vũ Thái Bình','19930713','Sài Gòn','0903025581')
-db.session.add(newCustomer)
+new_customer = Customer ('Vũ Thái Bình','19930713','Sài Gòn','0903025581')
+db.session.add(new_customer)
 db.session.commit()
 
 # READ
@@ -50,8 +49,3 @@ db.session.commit()
 customer_info = db.session.query(Customer).get(4)
 db.session.delete(customer_info)
 db.session.commit()
-
-#TODO Son cuoi' tep chi co' 1 dong tra'ng
-
-
-

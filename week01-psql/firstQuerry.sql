@@ -1,5 +1,3 @@
---TODO Son khi nao viet hoa, khi nao viet thuong ten bang - dang khong nhat' quan'
-
 -- 01.CREATE TABLE CUSTOMERS IN DATABASE PSQL_INTERN
 DROP TABLE if exists customers;
 CREATE TABLE CUSTOMERS(
@@ -21,8 +19,8 @@ INSERT INTO customers VALUES (default,'Tran Minh Thy','19870514','An Giang'
 							 ,'0932122333');
 							 
 -- 03.QUERRY DATA FROM CUSTOMERS TABLE
-SELECT * FROM CUSTOMERS;
+SELECT * FROM customers;
 
 -- 04.QUERRY THE YOUNGEST CUSTOMER IN THE LIST
-SELECT * FROM CUSTOMERS
+SELECT * FROM customers
 WHERE birth = (SELECT max(birth) as EarliestDate FROM customers);

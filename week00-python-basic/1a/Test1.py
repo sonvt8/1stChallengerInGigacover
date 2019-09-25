@@ -27,4 +27,3 @@ if __name__ == '__main__':
     content = readFile('input1.txt')
     # Write file
     writeFile('output1.txt',content)
-

@@ -18,5 +18,3 @@ class Database():
 
         for data in fetchQuery.fetchall():
             print(data)
-
-#TODO Son cuoi' tep chi co' 1 dong tra'ng
