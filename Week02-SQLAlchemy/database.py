@@ -1,11 +1,17 @@
 import sqlalchemy as db
 from sqlalchemy.orm import sessionmaker
 import sys, traceback
+from config import USER, PASSWD, DB, HOST, PORT
 
 class Database():
     # replace the user, password, hostname and database according to your configuration according to your information
     url = 'postgresql://{user}:{passwd}@{host}:{port}/{db}'.format(
-        user='postgres', passwd='abc123@@@', host='localhost', port=5432, db='PSQL_INTERN')
+        user   = USER,
+        passwd = PASSWD,
+        host   = HOST,
+        port   = PORT,
+        db     = DB,
+    )
     engine = db.create_engine(url)
     session = sessionmaker(bind= engine)()
 

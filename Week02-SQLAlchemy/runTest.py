@@ -29,9 +29,9 @@ class Customer(Base):
 #CRUD WITH SQLAlchemy
 
 # CREATE
-new_customer = Customer ('Vũ Thái Bình','19930713','Sài Gòn','0903025581')
-db.session.add(new_customer)
-db.session.commit()
+# new_customer = Customer ('Vũ Thái Bình','19930713','Sài Gòn','0903025581')
+# db.session.add(new_customer)
+# db.session.commit()
 
 # READ
 customers = db.session.query(Customer)
@@ -40,12 +40,12 @@ for customer in customers:
     print(sentence)
 
 # UPDATE
-customer_info = db.session.query(Customer).get(3) # Querry info of customer having ID = 3 #TODO Son typo querry
-customer_info.address = 'Vũng Tàu'
-customer_info.name = 'Cao Thanh Trúc'
-db.session.commit()
+# customer_info = db.session.query(Customer).get(3) # Querry info of customer having ID = 3 #TODO Son typo querry
+# customer_info.address = 'Vũng Tàu'
+# customer_info.name = 'Cao Thanh Trúc'
+# db.session.commit()
 
 # DELETE
-customer_info = db.session.query(Customer).get(4)
-db.session.delete(customer_info)
-db.session.commit()
+# customer_info = db.session.query(Customer).get(7)
+# db.session.delete(customer_info)
+# db.session.commit()
