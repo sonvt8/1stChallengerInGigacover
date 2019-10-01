@@ -38,6 +38,7 @@ wheels/
 *.egg
 *.manifest
 *.spec
+.vnv
 
 # Installer logs
 pip-log.txt
