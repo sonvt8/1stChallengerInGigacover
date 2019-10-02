@@ -13,8 +13,7 @@ def readFile(input):
         with open(input, "r") as f:
             return f.read().split(',')
     else:
-        print('File %s not found' % input)
-        sys.exit(1)
+        raise Exception('File %s not found' % input)
 
 def writeFile(output,lst):
     f = open(output, mode="w")
