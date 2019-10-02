@@ -31,10 +31,13 @@ def writeFile(output, lst):
         i += 1
     f.close()
 
-if __name__ == '__main__':
+def is_max_claim_count(input, output):
     # Read file
-    content = readFile('input.txt')
+    content = readFile(input)
     # convert string list into interger list
     results = list(map(int, content))
     # Write file
-    writeFile('output.txt', results)
+    writeFile(output, results)
+
+if __name__ == '__main__':
+    is_max_claim_count(input='input.txt', output='output.txt')
