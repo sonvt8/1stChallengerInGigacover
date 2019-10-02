@@ -27,6 +27,19 @@ class TestParallelRun(unittest.TestCase):
             pass  # must get here
             assert str(e) == f'List of claim count is empty'
 
-
+    def test_tc01(self):
+        #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.w2a1103zyh53
+        valid_input = '/tmp/tc01.input'
+        numbers = [4, 0, -22, 3, 44]
+        with open(valid_input, 'w') as f:
+            for number in numbers:
+                print('%i' % number, file=f)
+        #endregion
+        actual_output = '/tmp/tc01.out'
+        is_max_claim_count(valid_input, actual_output)
+        with open(actual_output, 'r') as fo:
+            data = fo.read().strip()
+            expected_output = '0, 0, 0, 1'
+            assert data == expected_output.replace(', ', '\n')
 
 
