@@ -35,7 +35,7 @@ def find_min(input, output):
     if (os.stat(input).st_size == 0):
         raise Exception('Invalid input: Empty file')
     elif len(content) != 6:
-        raise Exception('Invalid input: List of numbers should have 6 numbers ')
+        raise Exception('Invalid input: List of numbers should have 6 numbers')
     else:
         writeFile(output, content)
 
