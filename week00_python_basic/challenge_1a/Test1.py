@@ -32,10 +32,10 @@ def find_min(input, output):
     # Read file
     content = readFile(input)
     # Write file
-    if (os.stat('input.txt').st_size == 0):
-        print('Invalid input: Empty file')
+    if (os.stat(input).st_size == 0):
+        raise Exception('Invalid input: Empty file')
     elif len(content) != 6:
-        print('Invalid input: List of numbers should have 6 numbers ')
+        raise Exception('Invalid input: List of numbers should have 6 numbers ')
     else:
         writeFile(output, content)
 
