@@ -8,13 +8,13 @@ import os
 import sys, traceback
 
 def readFile(input):
-    try:
-        f = open(input, mode="r")
-        return f.read().split(',')
-    except FileNotFoundError:
+    file_exists = os.path.isfile('input.txt')
+    if file_exists:
+        with open(input, "r") as f:
+            return f.read().split(',')
+    else:
         print('File %s not found' % input)
-    finally:
-        f.close()
+        sys.exit(1)
 
 def writeFile(output,lst):
     f = open(output, mode="w")
@@ -29,13 +29,13 @@ def writeFile(output,lst):
 
 if __name__ == '__main__':
     # Read file
-    content = readFile('input1.txt')
+    content = readFile('input.txt')
     # Write file
-    if (os.stat('input1.txt').st_size == 0):
+    if (os.stat('input.txt').st_size == 0):
         print('Invalid input: Empty file')
-    elif len(content) < 6:
-        print('Invalid input: List of numbers should have at least 6 numbers ')
+    elif len(content) != 6:
+        print('Invalid input: List of numbers should have 6 numbers ')
     else:
-        writeFile('output1.txt', content)
+        writeFile('output.txt', content)
 
 
