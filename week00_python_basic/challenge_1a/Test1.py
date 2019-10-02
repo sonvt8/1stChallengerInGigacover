@@ -27,15 +27,16 @@ def writeFile(output,lst):
     f.write(f'{int(min(lst))}')
     f.close()
 
-if __name__ == '__main__':
+def find_min(input, output):
     # Read file
-    content = readFile('input.txt')
+    content = readFile(input)
     # Write file
     if (os.stat('input.txt').st_size == 0):
         print('Invalid input: Empty file')
     elif len(content) != 6:
         print('Invalid input: List of numbers should have 6 numbers ')
     else:
-        writeFile('output.txt', content)
+        writeFile(output, content)
 
-
+if __name__ == '__main__':
+    find_min(input='input2.txt', output='output.txt')
