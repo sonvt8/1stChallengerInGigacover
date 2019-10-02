@@ -22,8 +22,7 @@ def writeFile(output,lst):
         try:
             _ = float(lst[i])
         except Exception:
-            print('Invalid input: The item in the list must be a number')
-            sys.exit(1)
+            raise Exception('Invalid input: The item in the list must be a number')
     #endregion
     f.write(f'{int(min(lst))}')
     f.close()
