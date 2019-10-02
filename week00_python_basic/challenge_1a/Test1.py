@@ -17,12 +17,14 @@ def readFile(input):
 
 def writeFile(output,lst):
     f = open(output, mode="w")
+    #region try to convert to float
     for i in range(0, len(lst)):
         try:
-            content[i] = float(lst[i])
+            _ = float(lst[i])
         except Exception:
             print('Invalid input: The item in the list must be a number')
             sys.exit(1)
+    #endregion
     f.write(f'{int(min(lst))}')
     f.close()
 
