@@ -11,7 +11,7 @@ def readFile(input):
     file_exists = os.path.isfile(input)
     if file_exists:
         with open(input, "r") as f:
-            return f.read().split(',')
+            return f.read().split(', ')
     else:
         raise Exception('File %s not found' % input)
 
@@ -24,7 +24,7 @@ def writeFile(output,lst):
         except Exception:
             raise Exception('Invalid input: The item in the list must be a number')
     #endregion
-    f.write(f'{int(min(lst))}')
+    f.write(f'{min(lst)}')
     f.close()
 
 def find_min(input, output):
