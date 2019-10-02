@@ -8,7 +8,7 @@ import os
 import sys
 
 def readFile(input):
-    file_exists = os.path.isfile('input.txt')
+    file_exists = os.path.isfile(input)
     if file_exists:
         with open(input, "r") as f:
             return f.read().split(',')
