@@ -38,4 +38,4 @@ def find_min(input, output):
         writeFile(output, content)
 
 if __name__ == '__main__':
-    find_min(input='input2.txt', output='output.txt')
+    find_min(input='input.txt', output='output.txt')
