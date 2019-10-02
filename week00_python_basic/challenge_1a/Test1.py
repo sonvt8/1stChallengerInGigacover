@@ -5,7 +5,7 @@
 #     output
 #     -3
 import os
-import sys, traceback
+import sys
 
 def readFile(input):
     file_exists = os.path.isfile('input.txt')
