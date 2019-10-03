@@ -1,11 +1,4 @@
-#     Given a list of 6 float numbers from input file, print by C code to output file the minimum value of the list.
-#     Sample input+output files
-#     input
-#     -3 -1.2 0 0 4.56 78.9
-#     output
-#     -3
 import os
-import sys
 
 def readFile(input):
     file_exists = os.path.isfile(input)
