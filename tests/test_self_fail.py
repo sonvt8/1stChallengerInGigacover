@@ -8,7 +8,7 @@ def f_no_exception():
     pass
 
 def f_with_exception():
-    raise Exception()
+    raise Exception(f'some error from f_with_exception')
 
 
 class Test(unittest.TestCase):
