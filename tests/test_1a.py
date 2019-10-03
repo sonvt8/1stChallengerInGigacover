@@ -73,4 +73,16 @@ class TestParallelRun(unittest.TestCase):
             self.fail('We must NOT reach here')
         except Exception as e:
             pass  # must get here
+            assert str(e) == f'Invalid input: List of numbers should have 6 numbers'
+
+    def test_tc03c(self):
+        #region make input file as https://docs.google.com/document/d/1spaSZlvmHTDarW6OnKvrKgJKRdbS-mKc/edit#bookmark=id.a6tazu4n6psx
+        valid_input = '/tmp/tc03b.input'
+        open(valid_input, 'a').close()
+        #endregion
+        try:
+            find_min(input=valid_input, output='any/thing')
+            self.fail('We must NOT reach here')
+        except Exception as e:
+            pass  # must get here
             assert str(e) == f'Invalid input: Empty file'
