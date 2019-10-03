@@ -32,7 +32,7 @@ class TestParallelRun(unittest.TestCase):
     def test_tc01(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.w2a1103zyh53
         valid_input = '/tmp/tc01.input'
-        lines =textwrap.dedent('''
+        lines = textwrap.dedent('''
             4
             0
             -22
