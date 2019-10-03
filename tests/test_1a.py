@@ -13,13 +13,10 @@ class TestParallelRun(unittest.TestCase):
 
 
     def test_tc00(self):
-        try:
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             invalid_input = '/any/path/not/exist'
             find_min(input=invalid_input, output='any/thing')
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'File {invalid_input} not found'
+        assert str(ec.exception) == f'File {invalid_input} not found'
 
     def test_tc01(self):
         #region make input file as https://docs.google.com/document/d/1spaSZlvmHTDarW6OnKvrKgJKRdbS-mKc/edit#bookmark=id.ej3k2ud0bk6m
@@ -40,13 +37,11 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print('1, 22, 333', file=f)
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/any/thing/'
             find_min(input=valid_input, output=actual_output)
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'Invalid input: List of numbers should have 6 numbers'
+        assert str(ec.exception) == f'Invalid input: List of numbers should have 6 numbers'
 
     def test_tc03a(self):
         #region make input file as https://docs.google.com/document/d/1spaSZlvmHTDarW6OnKvrKgJKRdbS-mKc/edit#bookmark=id.1a6jj95xd435
@@ -54,13 +49,11 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print('1, 22, 333, 44, 555, a', file=f)
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc03a.output'
             find_min(input=valid_input, output=actual_output)
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'Invalid input: The item in the list must be a number'
+        assert str(ec.exception) == f'Invalid input: The item in the list must be a number'
 
     def test_tc03b(self):
         #region make input file as https://docs.google.com/document/d/1spaSZlvmHTDarW6OnKvrKgJKRdbS-mKc/edit#bookmark=id.r0torxrmg9uh
@@ -68,21 +61,17 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print('', file=f)
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             find_min(input=valid_input, output='any/thing')
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'Invalid input: List of numbers should have 6 numbers'
+        assert str(ec.exception) == f'Invalid input: List of numbers should have 6 numbers'
 
     def test_tc03c(self):
         #region make input file as https://docs.google.com/document/d/1spaSZlvmHTDarW6OnKvrKgJKRdbS-mKc/edit#bookmark=id.a6tazu4n6psx
         valid_input = '/tmp/tc03b.input'
         open(valid_input, 'w').close()
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             find_min(input=valid_input, output='any/thing')
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'Invalid input: Empty file'
+        assert str(ec.exception) == f'Invalid input: Empty file'

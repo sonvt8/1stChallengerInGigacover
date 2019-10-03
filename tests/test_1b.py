@@ -13,13 +13,10 @@ class TestParallelRun(unittest.TestCase):
     def tearDown(self): pass  # nothing here for now
 
     def test_tc00(self):
-        try:
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             invalid_input = '/any/path/not/exist'
             find_max_claim(input=invalid_input, output='any/thing')
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'File {invalid_input} not found'
+        assert str(ec.exception) == f'File {invalid_input} not found'
 
     def test_tc01(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.c94ptzuqqtop
@@ -85,13 +82,11 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print(lines, file=f)
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc03a.out'
             find_max_claim(valid_input, actual_output)
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'N must be an integer number'
+        assert str(ec.exception) == f'N must be an integer number'
 
     def test_tc03b(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.v5dmpp98umnc
@@ -99,26 +94,22 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print('', file=f)
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc03b.out'
             find_max_claim(valid_input, actual_output)
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'N must have a value'
+        assert str(ec.exception) == f'N must have a value'
 
     def test_tc03c(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.rjt0hzegdweo
         valid_input = '/tmp/tc03c.input'
         open(valid_input, 'w').close()
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc03c.out'
             find_max_claim(valid_input, actual_output)
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'Invalid input: Empty file'
+        assert str(ec.exception) == f'Invalid input: Empty file'
 
     def test_tc04a(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.jfgz7yrat44n
@@ -133,12 +124,11 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print(lines, file=f)
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc04a.out'
             find_max_claim(valid_input, actual_output)
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'Invalid input: All claim count must be a number'
+        assert str(ec.exception) == f'Invalid input: All claim count must be a number'
 
     def test_tc04b(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.bfnsn71ffq4t
@@ -149,10 +139,9 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print(lines, file=f)
         #endregion
-        try:
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc04b.out'
             find_max_claim(valid_input, actual_output)
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'All claim-count must be valid'
+        assert str(ec.exception) == f'All claim-count must be valid'
 
