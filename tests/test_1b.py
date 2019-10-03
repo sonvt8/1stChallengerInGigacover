@@ -52,7 +52,7 @@ class TestParallelRun(unittest.TestCase):
             0
             1
         ''').strip()
-        with open(valid_input, 'w') as feo:
+        with open(expected_output, 'w') as feo:
             print(lines_eo, file=feo)
         #endregion
 
