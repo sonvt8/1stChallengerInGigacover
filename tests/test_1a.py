@@ -66,8 +66,7 @@ class TestParallelRun(unittest.TestCase):
             print('', file=f)
         #endregion
         try:
-            actual_output = '/tmp/tc03b.output'
-            find_min(input=valid_input, output=actual_output)
+            find_min(input=valid_input, output='any/thing')
         except Exception as e:
             pass  # must get here
             assert str(e) == f'Invalid input: Empty file'
