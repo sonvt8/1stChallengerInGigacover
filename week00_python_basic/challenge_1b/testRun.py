@@ -29,9 +29,9 @@ def writeFile(output, lst):
 
 def find_max_claim(input, output):
     # Read file
-    content = readFile('input.txt')
+    content = readFile(input)
     # Write file
-    writeFile('output.txt', content)
+    writeFile(output, content)
 
 if __name__ == '__main__':
     find_max_claim(input='input.txt', output='output.txt')
