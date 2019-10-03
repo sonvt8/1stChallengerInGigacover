@@ -23,7 +23,7 @@ class TestParallelRun(unittest.TestCase):
 
     def test_tc01(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.c94ptzuqqtop
-        valid_input = '/tmp/tc00.input'
+        valid_input = '/tmp/tc01.input'
         lines = textwrap.dedent('''
             0
         ''').strip()
@@ -38,9 +38,9 @@ class TestParallelRun(unittest.TestCase):
             pass  # must get here
             assert str(e) == f'List of claim count is empty'
 
-    def test_tc01(self):
+    def test_tc02(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.w2a1103zyh53
-        valid_input = '/tmp/tc01.input'
+        valid_input = '/tmp/tc02.input'
         lines = textwrap.dedent('''
             4
             0
@@ -53,8 +53,8 @@ class TestParallelRun(unittest.TestCase):
         #endregion
 
         #region make expected output
-        actual_output = '/tmp/tc01.out'
-        expected_output = '/tmp/tc01.expected.out'
+        actual_output = '/tmp/tc02.out'
+        expected_output = '/tmp/tc02.expected.out'
         lines_eo = textwrap.dedent('''
             0
             0
