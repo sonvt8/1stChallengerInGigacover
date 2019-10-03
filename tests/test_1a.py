@@ -78,7 +78,7 @@ class TestParallelRun(unittest.TestCase):
     def test_tc03c(self):
         #region make input file as https://docs.google.com/document/d/1spaSZlvmHTDarW6OnKvrKgJKRdbS-mKc/edit#bookmark=id.a6tazu4n6psx
         valid_input = '/tmp/tc03b.input'
-        open(valid_input, 'a').close()
+        open(valid_input, 'w').close()
         #endregion
         try:
             find_min(input=valid_input, output='any/thing')
