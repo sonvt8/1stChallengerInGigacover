@@ -13,6 +13,15 @@ class TestParallelRun(unittest.TestCase):
     def tearDown(self): pass  # nothing here for now
 
     def test_tc00(self):
+        try:
+            invalid_input = '/any/path/not/exist'
+            find_max_claim(input=invalid_input, output='any/thing')
+            self.fail('We must NOT reach here')
+        except Exception as e:
+            pass  # must get here
+            assert str(e) == f'File {invalid_input} not found'
+
+    def test_tc01(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.c94ptzuqqtop
         valid_input = '/tmp/tc00.input'
         lines = textwrap.dedent('''
