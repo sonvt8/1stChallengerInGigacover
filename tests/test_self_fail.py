@@ -7,8 +7,9 @@ def tearDownModule(): pass  # nothing here for now
 def f_no_exception():
     pass
 
+EXCEPTION_MSG = f'some error from f_with_exception'
 def f_with_exception():
-    raise Exception(f'some error from f_with_exception')
+    raise Exception(EXCEPTION_MSG)
 
 
 class Test(unittest.TestCase):
@@ -47,4 +48,8 @@ class Test(unittest.TestCase):
         with self.assertRaises(Exception):
             f_no_exception()
 
+    def test02b_f_with_exception_TEST_EXCEPTION_MSG(self):
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
+            f_with_exception()
+        assert str(ec.exception) == EXCEPTION_MSG
     #endregion f_with_exception()
