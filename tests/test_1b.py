@@ -23,6 +23,7 @@ class TestParallelRun(unittest.TestCase):
         try:
             actual_output = '/any/thing/'
             is_max_claim_count(valid_input, actual_output)
+            self.fail('We must NOT reach here')
         except Exception as e:
             pass  # must get here
             assert str(e) == f'List of claim count is empty'
