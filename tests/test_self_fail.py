@@ -43,4 +43,8 @@ class Test(unittest.TestCase):
         with self.assertRaises(Exception):
             f_with_exception()
 
+    def test02b_f_with_exception_WILL_FAIL(self):
+        with self.assertRaises(Exception):
+            f_no_exception()
+
     #endregion f_with_exception()
