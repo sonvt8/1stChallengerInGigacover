@@ -16,6 +16,7 @@ class TestParallelRun(unittest.TestCase):
         try:
             invalid_input = '/any/path/not/exist'
             find_min(input=invalid_input, output='any/thing')
+            self.fail('We must NOT reach here')
         except Exception as e:
             pass  # must get here
             assert str(e) == f'File {invalid_input} not found'
@@ -42,6 +43,7 @@ class TestParallelRun(unittest.TestCase):
         try:
             actual_output = '/any/thing/'
             find_min(input=valid_input, output=actual_output)
+            self.fail('We must NOT reach here')
         except Exception as e:
             pass  # must get here
             assert str(e) == f'Invalid input: List of numbers should have 6 numbers'
@@ -55,6 +57,7 @@ class TestParallelRun(unittest.TestCase):
         try:
             actual_output = '/tmp/tc03a.output'
             find_min(input=valid_input, output=actual_output)
+            self.fail('We must NOT reach here')
         except Exception as e:
             pass  # must get here
             assert str(e) == f'Invalid input: The item in the list must be a number'
@@ -66,9 +69,8 @@ class TestParallelRun(unittest.TestCase):
             print('', file=f)
         #endregion
         try:
-            actual_output = '/tmp/tc03b.output'
-            find_min(input=valid_input, output=actual_output)
+            find_min(input=valid_input, output='any/thing')
+            self.fail('We must NOT reach here')
         except Exception as e:
             pass  # must get here
             assert str(e) == f'Invalid input: Empty file'
-
