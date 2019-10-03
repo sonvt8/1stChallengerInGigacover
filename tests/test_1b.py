@@ -1,5 +1,5 @@
 import unittest
-from week00_python_basic.challenge_1b.testRun import is_max_claim_count
+from week00_python_basic.challenge_1b.testRun import find_max_claim
 import textwrap
 import filecmp
 
@@ -23,7 +23,7 @@ class TestParallelRun(unittest.TestCase):
         #endregion
         try:
             actual_output = '/any/thing/'
-            is_max_claim_count(valid_input, actual_output)
+            find_max_claim(valid_input, actual_output)
             self.fail('We must NOT reach here')
         except Exception as e:
             pass  # must get here
@@ -57,7 +57,7 @@ class TestParallelRun(unittest.TestCase):
         #endregion
 
         # run testes code
-        is_max_claim_count(valid_input, actual_output)
+        find_max_claim(valid_input, actual_output)
 
         # check for expected values
         filecmp.cmp(actual_output, expected_output)
