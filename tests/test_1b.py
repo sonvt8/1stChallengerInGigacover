@@ -30,13 +30,18 @@ class TestParallelRun(unittest.TestCase):
         with open(valid_input, 'w') as f:
             print(lines, file=f)
         #endregion
-        try:
-            actual_output = '/any/thing/'
-            find_max_claim(valid_input, actual_output)
-            self.fail('We must NOT reach here')
-        except Exception as e:
-            pass  # must get here
-            assert str(e) == f'List of claim count is empty'
+
+        # region make expected output
+        actual_output = '/tmp.tc01.out'
+        expected_output = '/tmp/tc01.expected.out'
+        open(expected_output, 'w').close()
+        #endregion
+
+        # run testes code
+        find_max_claim(valid_input, actual_output)
+
+        # check for expected values
+        filecmp.cmp(actual_output, expected_output)
 
     def test_tc02(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.w2a1103zyh53
@@ -70,3 +75,84 @@ class TestParallelRun(unittest.TestCase):
 
         # check for expected values
         filecmp.cmp(actual_output, expected_output)
+
+    def test_tc03a(self):
+        #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.e3cieiz84v1i
+        valid_input = '/tmp/tc03a.input'
+        lines = textwrap.dedent('''
+            abc
+        ''').strip()
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        #endregion
+        try:
+            actual_output = '/tmp/tc03a.out'
+            find_max_claim(valid_input, actual_output)
+            self.fail('We must NOT reach here')
+        except Exception as e:
+            pass  # must get here
+            assert str(e) == f'N must be an integer number'
+
+    def test_tc03b(self):
+        #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.v5dmpp98umnc
+        valid_input = '/tmp/tc03b.input'
+        with open(valid_input, 'w') as f:
+            print('', file=f)
+        #endregion
+        try:
+            actual_output = '/tmp/tc03b.out'
+            find_max_claim(valid_input, actual_output)
+            self.fail('We must NOT reach here')
+        except Exception as e:
+            pass  # must get here
+            assert str(e) == f'N must have a value'
+
+    def test_tc03c(self):
+        #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.rjt0hzegdweo
+        valid_input = '/tmp/tc03c.input'
+        open(valid_input, 'w').close()
+        #endregion
+        try:
+            actual_output = '/tmp/tc03c.out'
+            find_max_claim(valid_input, actual_output)
+            self.fail('We must NOT reach here')
+        except Exception as e:
+            pass  # must get here
+            assert str(e) == f'Invalid input: Empty file'
+
+    def test_tc04a(self):
+        #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.jfgz7yrat44n
+        valid_input = '/tmp/tc04a.input'
+        lines = textwrap.dedent('''
+            4
+            0
+            1
+            abc
+            2
+        ''').strip()
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        #endregion
+        try:
+            actual_output = '/tmp/tc04a.out'
+            find_max_claim(valid_input, actual_output)
+        except Exception as e:
+            pass  # must get here
+            assert str(e) == f'Invalid input: All claim count must be a number'
+
+    def test_tc04b(self):
+        #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.bfnsn71ffq4t
+        valid_input = '/tmp/tc04b.input'
+        lines = textwrap.dedent('''
+            4
+        ''').strip()
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        #endregion
+        try:
+            actual_output = '/tmp/tc04b.out'
+            find_max_claim(valid_input, actual_output)
+        except Exception as e:
+            pass  # must get here
+            assert str(e) == f'All claim-count must be valid'
+
