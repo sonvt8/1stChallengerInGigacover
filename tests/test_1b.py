@@ -18,7 +18,7 @@ class TestParallelRun(unittest.TestCase):
         numbers = [0]
         with open(valid_input, 'w') as f:
             for number in numbers:
-                print('%i' % number, file=f)
+                print('%i' % number, file=f)  #TODO Trang why not just print(number) ?
         #endregion
         try:
             actual_output = '/any/thing/'
@@ -33,7 +33,7 @@ class TestParallelRun(unittest.TestCase):
         numbers = [4, 0, -22, 3, 44]
         with open(valid_input, 'w') as f:
             for number in numbers:
-                print('%i' % number, file=f)
+                print('%i' % number, file=f)  #TODO Trang why not just print(number) ?
         #endregion
         actual_output = '/tmp/tc01.out'
         is_max_claim_count(valid_input, actual_output)
