@@ -248,3 +248,20 @@ class Test(unittest.TestCase):
             insurance_policies(valid_input, actual_output)
         assert str(ec.exception) == f'p must have a value'
 
+    def test_tc09a(self):
+        # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.8gw4r2c1oftj
+        valid_input = '/tmp/tc09a.input'
+        lines = textwrap.dedent('''
+            nricfin first_name middle_name last_name date_of_birth premium claim_count
+            1
+            S122333bG trinh do cao 2000-02-11 500 abc
+        ''').strip()
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        # endregion
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
+            actual_output = '/tmp/tc09a.out'
+            insurance_policies(valid_input, actual_output)
+        assert str(ec.exception) == f'c must be a not-negative integer'
+
