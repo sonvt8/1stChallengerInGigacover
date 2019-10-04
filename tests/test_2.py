@@ -35,13 +35,13 @@ class Test(unittest.TestCase):
         # check for expected values
         filecmp.cmp(actual_output, expected_output)
 
-    def test_tc01(self):
+    def test_tc01_tc02(self):
         # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
         valid_input = '/tmp/tc01.input'
         lines = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             2
-            S122333aG aN vaN nguyeN 1999-01-22 500 2   
+            S122333aG aN vaN nguyeN 1980-02-11 500 2   
             S122333bG binh thi tran 1990-02-11 500 0
         ''').strip()
         with open(valid_input, 'w') as f:
@@ -53,7 +53,7 @@ class Test(unittest.TestCase):
         expected_output = '/tmp/tc01.expected.out'
         lines_out = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
-            S122333aG, An V. NGUYEN, 20, 1500
+            S122333aG, An V. NGUYEN, 39, 1500
             S122333aG, Binh T. TRAN, 29, 500
         ''').strip()
         with open(expected_output, 'w'):
