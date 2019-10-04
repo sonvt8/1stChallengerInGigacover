@@ -24,10 +24,10 @@ class Test(unittest.TestCase):
         # endregion
 
         # region make expected output
-        actual_output = '/tmp.tc00.out'
+        actual_output = '/tmp/tc00.out'
         expected_output = '/tmp/tc01.expected.out'
-        with open(expected_output, 'w'):
-            print('', file=f)
+        with open(expected_output, 'w') as fo:
+            print('', file=fo)
 
         # run testes code
         insurance_policies(valid_input, actual_output)
@@ -49,15 +49,15 @@ class Test(unittest.TestCase):
         # endregion
 
         # region make expected output
-        actual_output = '/tmp.tc01_tc02.out'
+        actual_output = '/tmp/tc01_tc02.out'
         expected_output = '/tmp/tc01_tc02.expected.out'
         lines_out = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             S122333aG, An V. NGUYEN, 39, 1500
             S122333aG, Binh T. TRAN, 29, 500
         ''').strip()
-        with open(expected_output, 'w'):
-            print(lines_out, file=f)
+        with open(expected_output, 'w') as fo:
+            print(lines_out, file=fo)
 
         # run testes code
         insurance_policies(valid_input, actual_output)
@@ -79,15 +79,15 @@ class Test(unittest.TestCase):
         # endregion
 
         # egion make expected output
-        actual_output = '/tmp.tc03_tc04.out'
+        actual_output = '/tmp/tc03_tc04.out'
         expected_output = '/tmp/tc03_tc04.expected.out'
         lines_out = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             S122333aG, Thuong B. VU, 20, 1500
             S122333bG, Trinh D. CAO, 19, 500
         ''').strip()
-        with open(expected_output, 'w'):
-            print(lines_out, file=f)
+        with open(expected_output, 'w') as fo:
+            print(lines_out, file=fo)
 
         # run testes code
         insurance_policies(valid_input, actual_output)
