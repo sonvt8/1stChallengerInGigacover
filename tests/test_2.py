@@ -64,3 +64,34 @@ class Test(unittest.TestCase):
 
         # check for expected values
         filecmp.cmp(actual_output, expected_output)
+
+    def test_tc03_tc04(self):
+        #region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
+        valid_input = '/tmp/tc03.input'
+        lines = textwrap.dedent('''
+            nricfin first_name middle_name last_name date_of_birth premium claim_count
+            2
+            S122333aG thuOnG bInh vU 1999-01-22 500 2   
+            S122333bG triNH Do CAo 2000-02-11 500 0
+        ''').strip()
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        # endregion
+
+        # egion make expected output
+        actual_output = '/tmp.tc03.out'
+        expected_output = '/tmp/tc03.expected.out'
+        lines_out = textwrap.dedent('''
+            nricfin first_name middle_name last_name date_of_birth premium claim_count
+            S122333aG, Thuong B. VU, 20, 1500
+            S122333bG, Trinh D. CAO, 19, 500
+        ''').strip()
+        with open(expected_output, 'w'):
+            print(lines_out, file=f)
+
+        # run testes code
+        insurance_policies(valid_input, actual_output)
+
+        # check for expected values
+        filecmp.cmp(actual_output, expected_output)
+
