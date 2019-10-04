@@ -1,5 +1,5 @@
 import unittest
-from week00_python_basic.challenge_1b.testRun import find_max_claim
+from week00_python_basic.challenge_1b.run_1b import find_max_claim
 import textwrap
 import filecmp
 
