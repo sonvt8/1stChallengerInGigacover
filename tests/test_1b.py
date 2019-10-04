@@ -31,7 +31,8 @@ class TestParallelRun(unittest.TestCase):
         # region make expected output
         actual_output = '/tmp.tc01.out'
         expected_output = '/tmp/tc01.expected.out'
-        open(expected_output, 'w').close()
+        with open(expected_output, 'w'):
+            print('', file=f)
         #endregion
 
         # run testes code
@@ -91,8 +92,11 @@ class TestParallelRun(unittest.TestCase):
     def test_tc03b(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.v5dmpp98umnc
         valid_input = '/tmp/tc03b.input'
+        lines = textwrap.dedent("""
+                   \n
+        """).strip()
         with open(valid_input, 'w') as f:
-            print('', file=f)
+            print(lines, file=f)
         #endregion
 
         with self.assertRaises(Exception) as ec:  # ec aka. exception context
