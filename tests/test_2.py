@@ -111,3 +111,21 @@ class Test(unittest.TestCase):
             actual_output = '/tmp/tc05a.out'
             insurance_policies(valid_input, actual_output)
         assert str(ec.exception) == f'n must be a string'
+
+    def test_tc5b(self):
+        # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4or02ub25guj
+        valid_input = '/tmp/tc05b.input'
+        lines = textwrap.dedent('''
+            nricfin first_name middle_name last_name date_of_birth premium claim_count
+            1
+            empty an van nguyen 1999-01-22 500 0
+        ''').strip().replace("empty", '')
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        # endregion
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
+            actual_output = '/tmp/tc05b.out'
+            insurance_policies(valid_input, actual_output)
+        assert str(ec.exception) == f'n must have a value'
+
