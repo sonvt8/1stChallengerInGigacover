@@ -128,7 +128,7 @@ class TestParallelRun(unittest.TestCase):
         with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc04a.out'
             find_max_claim(valid_input, actual_output)
-        assert str(ec.exception) == f'Invalid input: All claim count must be a number'
+        assert str(ec.exception) == f'All claim-count must be valid'
 
     def test_tc04b(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.bfnsn71ffq4t
@@ -143,5 +143,5 @@ class TestParallelRun(unittest.TestCase):
         with self.assertRaises(Exception) as ec:  # ec aka. exception context
             actual_output = '/tmp/tc04b.out'
             find_max_claim(valid_input, actual_output)
-        assert str(ec.exception) == f'All claim-count must be valid'
+        assert str(ec.exception) == f'Claim-count is empty'
 
