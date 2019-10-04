@@ -231,3 +231,20 @@ class Test(unittest.TestCase):
             insurance_policies(valid_input, actual_output)
         assert str(ec.exception) == f'p must be a positive float number'
 
+    def test_tc08b(self):
+        # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.d5q872q8kj3l
+        valid_input = '/tmp/tc08b.input'
+        lines = textwrap.dedent('''
+            nricfin first_name middle_name last_name date_of_birth premium claim_count
+            1
+            S122333bG binh thi tran 1990-02-11 empty 0
+        ''').strip().replace('empty', '')
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        # endregion
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
+            actual_output = '/tmp/tc08b.out'
+            insurance_policies(valid_input, actual_output)
+        assert str(ec.exception) == f'p must have a value'
+
