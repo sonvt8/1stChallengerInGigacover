@@ -39,7 +39,7 @@ class Test(unittest.TestCase):
         find_max_claim(valid_input, actual_output)
 
         # check for expected values
-        filecmp.cmp(actual_output, expected_output)
+        assert filecmp.cmp(actual_output, expected_output)
 
     def test_tc02(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.w2a1103zyh53
@@ -72,7 +72,7 @@ class Test(unittest.TestCase):
         find_max_claim(valid_input, actual_output)
 
         # check for expected values
-        filecmp.cmp(actual_output, expected_output)
+        assert filecmp.cmp(actual_output, expected_output)
 
     def test_tc03a(self):
         #region make input file as https://docs.google.com/document/d/1SMjeNNPntRFNPrDqngh304hUh9P4cD0L/edit#bookmark=id.e3cieiz84v1i
