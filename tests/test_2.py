@@ -37,7 +37,7 @@ class Test(unittest.TestCase):
 
     def test_tc01_tc02(self):
         # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
-        valid_input = '/tmp/tc01.input'
+        valid_input = '/tmp/tc01_tc02.input'
         lines = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             2
@@ -49,8 +49,8 @@ class Test(unittest.TestCase):
         # endregion
 
         # region make expected output
-        actual_output = '/tmp.tc01.out'
-        expected_output = '/tmp/tc01.expected.out'
+        actual_output = '/tmp.tc01_tc02.out'
+        expected_output = '/tmp/tc01_tc02.expected.out'
         lines_out = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             S122333aG, An V. NGUYEN, 39, 1500
@@ -79,8 +79,8 @@ class Test(unittest.TestCase):
         # endregion
 
         # egion make expected output
-        actual_output = '/tmp.tc03.out'
-        expected_output = '/tmp/tc03.expected.out'
+        actual_output = '/tmp.tc03_tc04.out'
+        expected_output = '/tmp/tc03_tc04.expected.out'
         lines_out = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             S122333aG, Thuong B. VU, 20, 1500
