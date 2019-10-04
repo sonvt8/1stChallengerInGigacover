@@ -146,3 +146,20 @@ class Test(unittest.TestCase):
             insurance_policies(valid_input, actual_output)
         assert str(ec.exception) == f's must be a string'
 
+    def test_tc06b(self):
+        # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.y618786kmtie
+        valid_input = '/tmp/tc06b.input'
+        lines = textwrap.dedent('''
+            nricfin first_name middle_name last_name date_of_birth premium claim_count
+            1
+            S122333bG ab1cd ab1cd ab1cd 1990-02-11 500 0
+        ''').strip()
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        # endregion
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
+            actual_output = '/tmp/tc06b.out'
+            insurance_policies(valid_input, actual_output)
+        assert str(ec.exception) == f's must not include number'
+
