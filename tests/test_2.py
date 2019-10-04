@@ -54,7 +54,7 @@ class Test(unittest.TestCase):
         lines_out = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             S122333aG, An V. NGUYEN, 39, 1500
-            S122333aG, Binh T. TRAN, 29, 500
+            S122333bG, Binh T. TRAN, 29, 500
         ''').strip()
         with open(expected_output, 'w') as fo:
             print(lines_out, file=fo)
@@ -84,7 +84,7 @@ class Test(unittest.TestCase):
         lines_out = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             S122333aG, Thuong B. VU, 20, 1500
-            S122333bG, Trinh D. CAO, 19, 500
+            S122333bG, Trinh D. CAO, 19, 1000
         ''').strip()
         with open(expected_output, 'w') as fo:
             print(lines_out, file=fo)
