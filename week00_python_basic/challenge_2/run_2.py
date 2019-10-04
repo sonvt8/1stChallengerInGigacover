@@ -64,9 +64,12 @@ def writeFile(output, lst):
                 + ', ' + str(person.getyear()) + ', ' + str(person.getPay(maxClaim)) + '\n')
     f.close()
 
-if __name__ == '__main__':
+def insurance_policies(input, output):
     # Read file
-    content = readFile('input.txt')
+    content = readFile(input)
 
     # Write file
-    writeFile('output.txt', content)
+    writeFile(output, content)
+
+if __name__ == '__main__':
+    insurance_policies(input='input.txt', output='output.txt')
