@@ -197,3 +197,20 @@ class Test(unittest.TestCase):
             insurance_policies(valid_input, actual_output)
         assert str(ec.exception) == f'd must be a date i.e. yyyy-mm-dd'
 
+    def test_tc07b(self):
+        # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.z8vx14fyvskh
+        valid_input = '/tmp/tc07b.input'
+        lines = textwrap.dedent('''
+            nricfin first_name middle_name last_name date_of_birth premium claim_count
+            1
+            S122333bG thuong binh vu empty 1
+        ''').strip().replace('empty', '')
+        with open(valid_input, 'w') as f:
+            print(lines, file=f)
+        # endregion
+
+        with self.assertRaises(Exception) as ec:  # ec aka. exception context
+            actual_output = '/tmp/tc07b.out'
+            insurance_policies(valid_input, actual_output)
+        assert str(ec.exception) == f'd must have a value'
+
