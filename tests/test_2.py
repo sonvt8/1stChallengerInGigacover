@@ -66,8 +66,8 @@ class Test(unittest.TestCase):
         filecmp.cmp(actual_output, expected_output)
 
     def test_tc03_tc04(self):
-        #region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
-        valid_input = '/tmp/tc03.input'
+        #region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.7r8ck1i20run
+        valid_input = '/tmp/tc03_tc04.input'
         lines = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             2
