@@ -33,7 +33,7 @@ class Test(unittest.TestCase):
         insurance_policies(valid_input, actual_output)
 
         # check for expected values
-        filecmp.cmp(actual_output, expected_output)
+        assert filecmp.cmp(actual_output, expected_output)
 
     def test_tc01_tc02(self):
         # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
@@ -63,7 +63,7 @@ class Test(unittest.TestCase):
         insurance_policies(valid_input, actual_output)
 
         # check for expected values
-        filecmp.cmp(actual_output, expected_output)
+        assert filecmp.cmp(actual_output, expected_output)
 
     def test_tc03_tc04(self):
         #region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.7r8ck1i20run
@@ -93,7 +93,7 @@ class Test(unittest.TestCase):
         insurance_policies(valid_input, actual_output)
 
         # check for expected values
-        filecmp.cmp(actual_output, expected_output)
+        assert filecmp.cmp(actual_output, expected_output)
 
     def test_tc05a(self):
         # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.vn2rpimh9xvp
