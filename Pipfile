@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 sqlalchemy = "*"
-psycopg2 = "==2.7.3.1"
+psycopg2 = "*"
 pytest = "*"
 
 [requires]

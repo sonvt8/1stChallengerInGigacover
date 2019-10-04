@@ -1,5 +1,5 @@
 import unittest
-from week00_python_basic.challenge_1a.Test1 import find_min
+from week00_python_basic.challenge_1a.run_1a import find_min
 
 
 def setUpModule():    pass  # nothing here for now
