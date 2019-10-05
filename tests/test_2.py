@@ -1,7 +1,9 @@
 import unittest
-from week00_python_basic.challenge_2.run_2 import insurance_policies
 import textwrap
 import filecmp
+
+from tests.util import write2file, get_tc_file
+from week00_python_basic.challenge_2.run_2 import insurance_policies
 
 def setUpModule():    pass  # nothing here for now
 def tearDownModule(): pass  # nothing here for now
@@ -37,34 +39,43 @@ class Test(unittest.TestCase):
         assert filecmp.cmp(actual_output, expected_output)
 
     def test_tc01_tc02(self):
-        # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
-        valid_input = '/tmp/tc01_tc02.input' #TODO Trang ngay sinh khong giong trong tep tc ref. https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.lpaa09d6p3wm
-        lines = textwrap.dedent('''
-            nricfin first_name middle_name last_name date_of_birth premium claim_count
-            2
-            S122333aG aN vaN nguyeN 1980-02-11 500 2   
-            S122333bG binh thi tran 1990-02-11 500 0
-        ''').strip()
-        with open(valid_input, 'w') as f:
-            print(lines, file=f)
-        # endregion
+        """
+        ref. https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
+        """
+        tc_file=get_tc_file(self)
 
-        # region make expected output
-        actual_output = '/tmp/tc01_tc02.out'
-        expected_output = '/tmp/tc01_tc02.expected.out'
-        lines_out = textwrap.dedent('''
-            nricfin first_name middle_name last_name date_of_birth premium claim_count
-            S122333aG, An V. NGUYEN, 39, 1500
-            S122333bG, Binh T. TRAN, 29, 500
-        ''').strip()
-        with open(expected_output, 'w') as fo:
-            print(lines_out, file=fo)
+        #region make input file
+        valid_input = f'{tc_file}.input'
+        write2file(
+            filename = valid_input,
+            lines    = textwrap.dedent('''
+                nricfin first_name middle_name last_name date_of_birth premium claim_count
+                2
+                S122333aG aN vaN nguyeN 1980-02-11 500 2   
+                S122333bG binh thi tran 1990-02-11 500 0
+            ''').strip(),
+        )
+        #endregion
 
-        # run testes code
+        #region make expected output
+        expected_output = f'{tc_file}.expected.out'
+        write2file(
+            filename = expected_output,
+            lines    = textwrap.dedent('''
+                nricfin first_name middle_name last_name date_of_birth premium claim_count
+                S122333aG, An V. NGUYEN, 39, 1500
+                S122333bG, Binh T. TRAN, 29, 500
+            ''').strip(),
+        )
+        #endregion
+
+        # run testee code
+        actual_output = f'{tc_file}.out'
         insurance_policies(valid_input, actual_output)
 
         # check for expected values
-        assert filecmp.cmp(actual_output, expected_output)
+        assert filecmp.cmp(actual_output, expected_output) is True
+
 
     def test_tc03_tc04(self):
         #region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.7r8ck1i20run
