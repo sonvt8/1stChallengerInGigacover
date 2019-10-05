@@ -29,10 +29,9 @@ class Test(unittest.TestCase):
         #endregion
 
         # region make expected output
-        actual_output = '/tmp.tc01.out'
+        actual_output = '/tmp/tc01.out'
         expected_output = '/tmp/tc01.expected.out'
-        with open(expected_output, 'w'):
-            print('', file=f)
+        open(expected_output, 'w').close()
         #endregion
 
         # run testes code
