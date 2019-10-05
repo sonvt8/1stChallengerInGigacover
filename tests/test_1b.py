@@ -31,7 +31,8 @@ class Test(unittest.TestCase):
         # region make expected output
         actual_output = '/tmp/tc01.out'
         expected_output = '/tmp/tc01.expected.out'
-        open(expected_output, 'w').close()
+        with open(expected_output, 'w') as fo:
+            print('', file=fo)
         #endregion
 
         # run testes code
