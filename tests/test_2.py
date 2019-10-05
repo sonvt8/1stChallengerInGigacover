@@ -1,7 +1,9 @@
+#TODO Trang Em doc xong thi xoa dong nay di - import code cua he thong luon de tren cac import cua code cua minh
 import unittest
 import textwrap
 import filecmp
 
+#TODO Trang Em doc xong thi xoa dong nay di - import code cua minh luon de sau import tu he thong
 from tests.util import write2file, get_tc_file
 from week00_python_basic.challenge_2.run_2 import insurance_policies
 
@@ -37,6 +39,7 @@ class Test(unittest.TestCase):
 
         # check for expected values
         assert filecmp.cmp(actual_output, expected_output)
+
 
     def test_tc01_tc02(self):
         """
