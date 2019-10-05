@@ -35,7 +35,7 @@ def find_max_claim(input, output):
             #Try to convert N into interger if Claim-count exists
             if (int(content[0]) == 0):
                 with open(output, mode="w") as f:
-                    f.write(f'')                                                          #tc01
+                    f.write(f'\n')                                                        #tc01
             else:
                 if (content[1] != ''):
                     write_file(output, content)
