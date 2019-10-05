@@ -13,6 +13,7 @@ class Test(unittest.TestCase):
     def tearDown(self): pass  # nothing here for now
 
     def test_tc00(self):
+        #TODO Trang #region sau # ko co' khoang trang
         # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.q1lpunwc78v8
         valid_input = '/tmp/tc00.input'
         lines = textwrap.dedent('''
@@ -21,15 +22,15 @@ class Test(unittest.TestCase):
         ''').strip()
         with open(valid_input, 'w') as f:
             print(lines, file=f)
-        # endregion
+        # endregion  #TODO Trang #endregion sau # ko co' khoang trang
 
-        # region make expected output
+        # region make expected output #TODO Trang thieu #endregion
         actual_output = '/tmp/tc00.out'
         expected_output = '/tmp/tc01.expected.out'
         with open(expected_output, 'w') as fo:
             print('', file=fo)
 
-        # run testes code
+        # run testes code  #TODO Trang run testee code, khong phai testes
         insurance_policies(valid_input, actual_output)
 
         # check for expected values
@@ -37,7 +38,7 @@ class Test(unittest.TestCase):
 
     def test_tc01_tc02(self):
         # region make input file as https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.4g8u3yvsoc7f
-        valid_input = '/tmp/tc01_tc02.input'
+        valid_input = '/tmp/tc01_tc02.input' #TODO Trang ngay sinh khong giong trong tep tc ref. https://docs.google.com/document/d/1v1FcxCLvVGZcAIKy1Q6aPCq3bevR64igyLG4O60JptE/edit#bookmark=id.lpaa09d6p3wm
         lines = textwrap.dedent('''
             nricfin first_name middle_name last_name date_of_birth premium claim_count
             2
