@@ -1,5 +1,8 @@
+import platform
 import tempfile
-TMP=tempfile.gettempdir()
+
+
+TMP='/tmp' if platform.system() == 'Darwin' else tempfile.gettempdir()  # ref. https://stackoverflow.com/a/43418319/248616
 
 
 def write2file(filename: 'path as str', lines: str)-> 'write :lines to :filename':
